@@ -1,0 +1,7 @@
+[
+	{ "keys": ["ctrl+shift+o"], "command": "prompt_open_folder" },
+	{ "keys": ["shift+alt+t"], "command": "open_terminal_project_folder",
+	  "args":{
+	  } 
+	},
+]

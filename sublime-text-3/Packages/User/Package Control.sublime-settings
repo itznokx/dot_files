@@ -1,0 +1,18 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AlignTab",
+		"ayu",
+		"BracketHighlighter",
+		"FileIcons",
+		"Package Control",
+		"Terminal",
+		"Theme - Brogrammer",
+		"Theme - Cyanide",
+		"TodoReview"
+	]
+}

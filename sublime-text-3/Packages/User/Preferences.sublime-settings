@@ -1,0 +1,9 @@
+{
+	"color_scheme": "Packages/Theme - Cyanide/Twilightcyanide - Contrasted.tmTheme",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"index_files": true,
+	"theme": "ayu-mirage.sublime-theme"
+}
