@@ -1,5 +1,0 @@
-require ("nokx.remap")
-require ("nokx.packer")
-require ("nokx.userconfig")
-require("telescope").load_extension('harpoon')
-print("Nokx setup loaded")
