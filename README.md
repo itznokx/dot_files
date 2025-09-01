@@ -4,8 +4,6 @@ This repo was made for save my .config files for specific apps.
 - bash
 - grep
 - gcc
-- git
-- curl
 # INSTALL
 - todo
 # IMPLEMENTED SCRIPT DISTROS
