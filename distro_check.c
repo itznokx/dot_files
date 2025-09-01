@@ -68,7 +68,7 @@ int main (int narg,char* argv[]){
         printf("arch");
         break;
     default:
-        printf("Invalid distro.\n");
+        printf("invalid distro\n");
         break;
     }
     return 0;
