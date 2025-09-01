@@ -1,3 +1,2 @@
 # Dot Files Repo
-Repositório para guardar o .config de alguns programas
-importantes.
+This repo was made for save my .config files in specific apps.
