@@ -3,6 +3,9 @@ This repo was made for save my .config files for specific apps.
 # DEPENDENCIES
 - bash
 - grep
+- gcc
+- git
+- curl
 # INSTALL
 - todo
 # IMPLEMENTED SCRIPT DISTROS
