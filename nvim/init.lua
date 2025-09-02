@@ -10,7 +10,8 @@ local ensure_packer = function()
 	return false
 end
 local load_packer = ensure_packer()
-
+-- Set general clipboard
+vim.cmd("set clipboard+=unnamedplus")
   -- Start init config lua
 if (ensure_packer==false) then
 	print("Packer not installed run ./config.sh")
