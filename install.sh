@@ -5,6 +5,7 @@ echo "verifying distro"
 distro_id="$(cat /etc/*-release | grep "ID=")"
 script_base="$(./distro_check $distro_id)"
 nvim_install() { #generic linux install
+    echo "installing neovim"
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
     sudo rm -rf /opt/nvim # clean install (removable)
     sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz # extract
@@ -16,6 +17,7 @@ nvim_install() { #generic linux install
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 sublime_text_3_install(){ #generic linux install
+    echo "installing sublime-text-3"
     sudo curl -LO https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
     sudo rm -rf /opt/sublime_text_3 # clean install (removable)
     sudo tar -C /opt -xvjf sublime_text_3_build_3211_x64.tar.bz2 # extract with bz2 flag
@@ -79,11 +81,11 @@ if [[ "$script_base" = "debian" ]]; then
     sudo apt install unzip
     sudo apt install tar
     sudo apt install dpkg
+    echo "installing java"
+    curl https://download.oracle.com/java/24/latest/jdk-24_linux-x64_bin.deb
+    sudo dpkg -i jdk-24_linux-x64_bin.deb
     echo "installing brave"
     curl -fsS https://dl.brave.com/install.sh | sh
-    echo "installing neovim"
-    nvim_install
-    sublime_text_3_install
     echo "installing tmux"
     sudo apt install tmux
     echo "installing alacritty"
@@ -97,4 +99,7 @@ elif [[ "$script_base" = "invalid distro" ]]; then
 else
     echo "error"
 fi
-
+nvim_install
+sublime_text_3_install
+all_config
+echo "INSTALLATION SCRIPT ENDED"
