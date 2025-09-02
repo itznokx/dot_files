@@ -22,11 +22,24 @@ sublime_text_3_install(){ #generic linux install
     sudo ln -s -f /opt/sublime_text_3/sublime_text /bin/subl
     sudo rm -rf sublime_text_3_build_3211_x64.tar.bz2
 }
+sublime_config_folder(){
+    local dotfiles_path="$(pwd)"
+    local my_config_sublime="${dotfiles_path}/sublime-text-3"
+    local sublime_config_path="$HOME/.config/sublime-text-3"
+    echo "configuring sublime text 3 .config folder"
+    rm -rf $HOME/.config/sublime-text-3/Installed\ Packages
+    rm -rf $HOME/.config/sublime-text-3/Packages
+    echo "clean installation"
+    local my_subl_packages="${my_config_sublime}/Packages"
+    local my_subl_instld_packages="${my_config_sublime}/Installed Packages"
+    ln -s "${my_subl_packages}" "${sublime_config_path}"
+    ln -s "${my_subl_instld_packages}" "${sublime_config_path}"
+}
 current_dir="$(pwd)"
 # DEBIAN SCRIPT
 if [[ "$script_base" = "debian" ]]; then
     echo "debian-based distro identified"
-    mkdir $HOME/.config
+    mkdir ~/.config
     echo "updating"
     sudo apt update -y
     echo "upgrading"
@@ -52,6 +65,10 @@ if [[ "$script_base" = "debian" ]]; then
     sublime_text_3_install
     echo "installing tmux"
     sudo apt install tmux
+    echo "installing alacritty"
+    echo "alacritty dependencies"
+    sudo apt install cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    sudo cargo install alacritty
 elif [[ "$script_base" = "arch" ]]; then
     echo "arch-based distro identified"
 elif [[ "$script_base" = "invalid distro" ]]; then
