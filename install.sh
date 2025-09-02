@@ -4,7 +4,7 @@ echo "Nokx dot files configurer 0.0.1"
 echo "verifying distro"
 distro_id="$(cat /etc/*-release | grep "ID=")"
 script_base="$(./distro_check $distro_id)"
-nvim_install() { #all distro linux
+nvim_install() { #generic linux install
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
     sudo rm -rf /opt/nvim # clean install (removable)
     sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz # extract
@@ -15,13 +15,14 @@ nvim_install() { #all distro linux
     echo "copying packer neovim repo"
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
-sublime_text_3_install(){
+sublime_text_3_install(){ #generic linux install
     sudo curl -LO https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
-    sudo rm -rf /opt/sublime_text_3
-    sudo tar -C /opt -xvjf sublime_text_3_build_3211_x64.tar.bz2 # extract
+    sudo rm -rf /opt/sublime_text_3 # clean install (removable)
+    sudo tar -C /opt -xvjf sublime_text_3_build_3211_x64.tar.bz2 # extract with bz2 flag
     sudo ln -s -f /opt/sublime_text_3/sublime_text /bin/subl
     sudo rm -rf sublime_text_3_build_3211_x64.tar.bz2
 }
+current_dir="$(pwd)"
 # DEBIAN SCRIPT
 if [[ "$script_base" = "debian" ]]; then
     echo "debian-based distro identified"
@@ -44,10 +45,13 @@ if [[ "$script_base" = "debian" ]]; then
     sudo apt install unzip
     sudo apt install tar
     sudo apt install dpkg
+    echo "installing brave"
+    curl -fsS https://dl.brave.com/install.sh | sh
     echo "installing neovim"
     nvim_install
-    
-    echo "installing 
+    sublime_text_3_install
+    echo "installing tmux"
+    sudo apt install tmux
 elif [[ "$script_base" = "arch" ]]; then
     echo "arch-based distro identified"
 elif [[ "$script_base" = "invalid distro" ]]; then
