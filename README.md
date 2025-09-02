@@ -7,6 +7,6 @@ This repo was made for save my .config files for specific apps.
 # INSTALL
 - todo
 # IMPLEMENTED SCRIPT DISTROS
-- [ ] Debian based (working)
+- [x] Debian based (working)
 - [ ] Arch (todo)
 
