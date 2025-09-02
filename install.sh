@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# check distro
 echo "Nokx dot files configurer 0.0.1"
 echo "verifying distro"
 distro_id="$(cat /etc/*-release | grep "ID=")"
@@ -22,7 +22,7 @@ sublime_text_3_install(){ #generic linux install
     sudo ln -s -f /opt/sublime_text_3/sublime_text /bin/subl
     sudo rm -rf sublime_text_3_build_3211_x64.tar.bz2
 }
-sublime_config_folder(){
+sublime_config_folder(){ # all distros
     local dotfiles_path="$(pwd)"
     local my_config_sublime="${dotfiles_path}/sublime-text-3"
     local sublime_config_path="$HOME/.config/sublime-text-3"
@@ -34,6 +34,27 @@ sublime_config_folder(){
     local my_subl_instld_packages="${my_config_sublime}/Installed Packages"
     ln -s "${my_subl_packages}" "${sublime_config_path}"
     ln -s "${my_subl_instld_packages}" "${sublime_config_path}"
+}
+nvim_config_folder(){ 
+    local dotfiles_path="$(pwd)"
+    local my_config_nvim="${dotfiles_path}/nvim"
+    echo "configuring nvim .config folder"
+    rm -rf "$HOME/.config/nvim"
+    echo "clean installation"
+    ln -s -f "${my_config_nvim}" "$HOME/.config/"
+}
+tmux_config(){
+    local dotfiles_path="$(pwd)"
+    local my_config_tmux="${dotfiles_path}/tmux"
+    echo "configuring tmux .config folder"
+    rm -rf "$HOME/.tmux.conf"
+    ln -s -f "${my_config_tmux}/.tmux.conf" "$HOME/"
+}
+all_config(){
+    echo "Sublime3 .config"
+    sublime_config_folder
+    nvim_config_folder
+    tmux_config
 }
 current_dir="$(pwd)"
 # DEBIAN SCRIPT
