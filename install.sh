@@ -11,6 +11,9 @@ nvim_install() { #all distro linux
     sudo mv /opt/nvim-linux-x86_64 /opt/nvim
     sudo ln -s -f /opt/nvim/bin/nvim /bin/nvim
     sudo rm -rf nvim-linux-x86_64.tar.gz
+    echo "configuring nvim"
+    echo "copying packer neovim repo"
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 sublime_text_3_install(){
     sudo curl -LO https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
@@ -41,9 +44,10 @@ if [[ "$script_base" = "debian" ]]; then
     sudo apt install unzip
     sudo apt install tar
     sudo apt install dpkg
-    echo "configuring nvim"
-    echo "copying packer neovim repo"
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    echo "installing neovim"
+    nvim_install
+    
+    echo "installing 
 elif [[ "$script_base" = "arch" ]]; then
     echo "arch-based distro identified"
 elif [[ "$script_base" = "invalid distro" ]]; then
