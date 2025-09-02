@@ -4,15 +4,21 @@ echo "Nokx dot files configurer 0.0.1"
 echo "verifying distro"
 distro_id="$(cat /etc/*-release | grep "ID=")"
 script_base="$(./distro_check $distro_id)"
-
 nvim_install() { #all distro linux
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
     sudo rm -rf /opt/nvim # clean install (removable)
     sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz # extract
     sudo mv /opt/nvim-linux-x86_64 /opt/nvim
     sudo ln -s -f /opt/nvim/bin/nvim /bin/nvim
+    sudo rm -rf nvim-linux-x86_64.tar.gz
 }
-
+sublime_text_3_install(){
+    sudo curl -LO https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2
+    sudo rm -rf /opt/sublime_text_3
+    sudo tar -C /opt -xvjf sublime_text_3_build_3211_x64.tar.bz2 # extract
+    sudo ln -s -f /opt/sublime_text_3/sublime_text /bin/subl
+    sudo rm -rf sublime_text_3_build_3211_x64.tar.bz2
+}
 # DEBIAN SCRIPT
 if [[ "$script_base" = "debian" ]]; then
     echo "debian-based distro identified"
@@ -35,19 +41,9 @@ if [[ "$script_base" = "debian" ]]; then
     sudo apt install unzip
     sudo apt install tar
     sudo apt install dpkg
-    :'
-    echo "installing nvim"
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-    chmod u+x nvim-linux-x86_64.appimage
-    sudo ./nvim-linux-x86_64.appimage
-    rm ./nvim-linux-x86_64.appimage
-    mkdir -p /opt/nvim
-    mv nvim-linux-x86_64.appimage /opt/nvim/nvim
-    chmod u+x /opt/nvim/nvim
-    sudo ln -s -f /opt/nvim/nvim -t /bin/nvim
+    echo "configuring nvim"
     echo "copying packer neovim repo"
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    '
 elif [[ "$script_base" = "arch" ]]; then
     echo "arch-based distro identified"
 elif [[ "$script_base" = "invalid distro" ]]; then
