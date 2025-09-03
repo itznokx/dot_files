@@ -82,15 +82,18 @@ if [[ "$script_base" = "debian" ]]; then
     sudo apt install tar
     sudo apt install dpkg
     echo "installing java"
-    curl https://download.oracle.com/java/24/latest/jdk-24_linux-x64_bin.deb
+    wget https://download.oracle.com/java/24/latest/jdk-24_linux-x64_bin.deb
     sudo dpkg -i jdk-24_linux-x64_bin.deb
+    rm jdk-24_linux-x64_bin.deb
     echo "installing brave"
     curl -fsS https://dl.brave.com/install.sh | sh
     echo "installing tmux"
     sudo apt install tmux
-    echo "installing alacritty"
+    echo "installing zsh"
+    sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo "alacritty dependencies"
     sudo apt install cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    echo "installing alacritty"
     sudo cargo install alacritty
 elif [[ "$script_base" = "arch" ]]; then
     echo "arch-based distro identified"
