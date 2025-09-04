@@ -1,6 +1,4 @@
-vim.g.mapleader = " "
-vim.keymap.set("n","<leader>ee", vim.cmd.NvimTreeOpen)
-vim.keymap.set("n","<C-w>e",vim.cmd.NvimTreeClose)
+im.g.mapleader = " "
 vim.keymap.set('n','<C-s>', vim.cmd.w)
 vim.keymap.set('i','<C-v>','<C-R><Char-43>')
 
