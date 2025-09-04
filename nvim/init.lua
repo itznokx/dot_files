@@ -16,14 +16,15 @@ vim.cmd("set clipboard+=unnamedplus")
 if (ensure_packer==false) then
 	print("Packer not installed run ../nvim_config.sh")
 else
-	require ("nokx")
-  -- Update all plugins
-  vim.cmd("PackerInstall")
-  vim.cmd("PackerSync")
-  vim.opt.laststatus=2
-  vim.opt.showtabline=2
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
-  -- optionally enable 24-bit colour
-  vim.opt.termguicolors = true
+	require("oil").setup()
+	require ("nok")
+	-- Update all plugins
+	vim.cmd("PackerInstall")
+	vim.cmd("PackerSync")
+	vim.opt.laststatus=2
+	vim.opt.showtabline=2
+	vim.g.loaded_netrw = 1
+	vim.g.loaded_netrwPlugin = 1
+	-- optionally enable 24-bit colour
+	vim.opt.termguicolors = true
 end
