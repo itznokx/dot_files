@@ -14,7 +14,7 @@ local load_packer = ensure_packer()
 vim.cmd("set clipboard+=unnamedplus")
   -- Start init config lua
 if (ensure_packer==false) then
-	print("Packer not installed run ./config.sh")
+	print("Packer not installed run ../nvim_config.sh")
 else
 	require ("nokx")
   -- Update all plugins

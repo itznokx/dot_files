@@ -1,4 +1,4 @@
-im.g.mapleader = " "
+vim.g.mapleader = " "
 vim.keymap.set('n','<C-s>', vim.cmd.w)
 vim.keymap.set('i','<C-v>','<C-R><Char-43>')
 
