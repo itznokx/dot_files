@@ -25,6 +25,7 @@ sublime_text_3_install(){ #generic linux install
     sudo rm -rf sublime_text_3_build_3211_x64.tar.bz2
 }
 sublime_config_folder(){ # all distros
+    echo "Configuring sublime"
     local dotfiles_path="$(pwd)"
     local my_config_sublime="${dotfiles_path}/sublime-text-3"
     local sublime_config_path="$HOME/.config/sublime-text-3"
