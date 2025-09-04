@@ -22,13 +22,7 @@ return require('packer').startup(function(use)
 	 end,
  }
  use {'nvim-treesitter/playground'}
- use {
-  'nvim-tree/nvim-tree.lua',
-  requires = {
-    'nvim-tree/nvim-web-devicons', -- optional
-  },
-}
--- Color representation for HEX CODES
+ -- Color representation for HEX CODES
 use("catgoose/nvim-colorizer.lua")
 -- Transparent Backgrounds
 use {"xiyaowong/transparent.nvim"}
@@ -37,19 +31,5 @@ use { "zootedb0t/citruszest.nvim"} -- Citruszest
 use { "scottmckendry/cyberdream.nvim" } -- Cyberdream
 -- Status Line
 use {'tamton-aquib/staline.nvim'}
---[[
-use { "scottmckendry/cyberdream.nvim",require("cyberdream").setup({
-	transparent=true,
-	borderless_telescope=false,
-	extensions = {
-		telescope=true,
-		treesitter=true,
-	}
-})
-} 
-]]-- 
--- Cyberdream
-
  end)
---hype
 
