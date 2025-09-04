@@ -17,7 +17,7 @@ if (ensure_packer==false) then
 	print("Packer not installed run ../nvim_config.sh")
 else
 	require("oil").setup()
-	require ("nok")
+	require ("nokx")
 	-- Update all plugins
 	vim.cmd("PackerInstall")
 	vim.cmd("PackerSync")
