@@ -49,9 +49,17 @@ nvim_config_folder(){
 tmux_config(){
     local dotfiles_path="$(pwd)"
     local my_config_tmux="${dotfiles_path}/tmux"
-    echo "configuring tmux .config folder"
+    echo "configuring tmux .config file"
     rm -rf "$HOME/.tmux.conf"
     ln -s -f "${my_config_tmux}/.tmux.conf" "$HOME/"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+alacritty_config(){
+	local dotfiles_path="$(pwd)"
+	local my_config_alacritty="${dotfiles_path}/alacritty"
+	echo "configuring alacritty .config folder"
+	rm -rf "$HOME/.config/alacritty" # clean install
+	ln -s -f "${my_config_alacritty}" "$HOME/.config"
 }
 all_config(){
     echo "Sublime3 .config"
