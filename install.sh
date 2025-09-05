@@ -103,6 +103,7 @@ if [[ "$script_base" = "debian" ]]; then
     sudo apt install cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
     echo "installing alacritty"
     sudo cargo install alacritty
+	 sudo apt install variety
 elif [[ "$script_base" = "arch" ]]; then
     echo "arch-based distro identified"
 elif [[ "$script_base" = "invalid distro" ]]; then
