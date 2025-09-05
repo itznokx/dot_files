@@ -62,7 +62,6 @@ alacritty_config(){
 	ln -s -f "${my_config_alacritty}" "$HOME/.config"
 }
 all_config(){
-    echo "Sublime3 .config"
     sublime_config_folder
     nvim_config_folder
     tmux_config
