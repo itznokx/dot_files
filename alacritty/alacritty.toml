@@ -1,0 +1,12 @@
+[general]
+import = ["~/.config/alacritty/alacritty_user_set.toml",
+	  "~/.config/alacritty/alacritty_window.toml",
+	  "~/.config/alacritty/alacritty_theme.toml",
+	  ]
+
+live_config_reload = true
+
+[selection]
+
+save_to_clipboard = true
+

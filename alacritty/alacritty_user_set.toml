@@ -1,0 +1,7 @@
+[terminal]
+
+shell = "/bin/zsh"
+
+[mouse]
+
+hide_when_typing = true
