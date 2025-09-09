@@ -16,7 +16,17 @@ vim.cmd("set clipboard+=unnamedplus")
 if (ensure_packer==false) then
 	print("Packer not installed run ../nvim_config.sh")
 else
-	require("oil").setup()
+	require("oil").setup({
+		columns= {
+			"icon",
+			"size",
+			"permissions",	
+		},
+		delete_to_trash = true,
+		view_options = {
+			show_hidden = true,
+		},
+	})
 	require ("nokx")
 	-- Update all plugins
 	vim.cmd("PackerInstall")
