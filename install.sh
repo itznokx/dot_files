@@ -79,6 +79,7 @@ if [[ "$script_base" = "debian" ]]; then
     sudo apt install build-essential
     echo "installing git"
     sudo apt-get install git
+	 sudo apt install gh
     echo "installing ripgrep"
     sudo apt-get install ripgrep
     echo "install curl"
@@ -102,8 +103,9 @@ if [[ "$script_base" = "debian" ]]; then
     echo "alacritty dependencies"
     sudo apt install cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
     echo "installing alacritty"
+    sudo apt install cargo
     sudo cargo install alacritty
-	 sudo apt install variety
+	sudo apt install variety
 elif [[ "$script_base" = "arch" ]]; then
     echo "arch-based distro identified"
 elif [[ "$script_base" = "invalid distro" ]]; then
