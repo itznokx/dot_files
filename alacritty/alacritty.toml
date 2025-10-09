@@ -10,3 +10,6 @@ live_config_reload = true
 
 save_to_clipboard = true
 
+[scrolling]
+
+history = 15000
