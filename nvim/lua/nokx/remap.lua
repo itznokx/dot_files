@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
+vim.keymap.set("n","<leader>ee", vim.cmd.NvimTreeOpen)
+vim.keymap.set("n","<C-w>e",vim.cmd.NvimTreeClose)
 vim.keymap.set('n','<C-s>', vim.cmd.w)
-vim.keymap.set('n','<leader>ee', ':Oil<Enter>')
 vim.keymap.set('i','<C-v>','<C-R><Char-43>')
 
 vim.keymap.set('n','<leader>jj','o')
