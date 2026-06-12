@@ -25,13 +25,4 @@ magenta= '0xff99a1'
 cyan=    '0x9ed9d8'
 white=   '0xf6f6c9'
 
-#Fonts
-[font.normal]
-family = "Hack Nerd Font Mono"
-style = "Regular"
-[font.bold]
-family = "Hack Nerd Font Mono"
-style = "Bold"
-[font.italic]
-family = "Hack Nerd Font Mono"
-style="Italic"
+
